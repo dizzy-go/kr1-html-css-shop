@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Сравнение товаров учебного интернет-магазина по характеристикам.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Сравнение товаров – Учебный интернет-магазин">
+    <meta property="og:description" content="Таблица сравнения товаров по характеристикам.">
+    <meta property="og:image" content="https://dizzy-go.github.io/kr1-html-css-shop/images/preview.jpg">
+    <title>Сравнение товаров – Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html">ShopProject</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+          <ul class="site-nav__list">
+            <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+            <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+            <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="compare.html">Сравнение</a></li>
+            <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+            <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
+            <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+        <span class="breadcrumbs__current">Сравнение товаров</span>
+      </nav>
+
+      <section class="section">
+        <h1 class="section__title">Сравнение товаров</h1>
+        <p>
+          Ниже представлено сравнение популярных товаров по основным характеристикам.
+          Столбец с лучшим выбором выделен цветом.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="compare-table-wrapper">
+          <table class="compare-table">
+            <caption>Сравнение товаров по характеристикам</caption>
+            <thead>
+              <tr>
+                <th scope="col">Параметр</th>
+                <th scope="col">Товар 1</th>
+                <th scope="col">Товар 2</th>
+                <th scope="col" class="compare-table__col--best">Товар 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Категория</th>
+                <td>Учебный товар</td>
+                <td>Учебный товар</td>
+                <td class="compare-table__cell--best">Учебный товар</td>
+              </tr>
+              <tr>
+                <th scope="row">Цена</th>
+                <td>1000 руб.</td>
+                <td>1500 руб.</td>
+                <td class="compare-table__cell--best">2000 руб.</td>
+              </tr>
+              <tr>
+                <th scope="row">Наличие</th>
+                <td>В наличии</td>
+                <td>В наличии</td>
+                <td class="compare-table__cell--best">В наличии</td>
+              </tr>
+              <tr>
+                <th scope="row">Гарантия</th>
+                <td>6 месяцев</td>
+                <td>12 месяцев</td>
+                <td class="compare-table__cell--best">24 месяца</td>
+              </tr>
+              <tr>
+                <th scope="row">Рейтинг</th>
+                <td>4,2 из 5</td>
+                <td>4,5 из 5</td>
+                <td class="compare-table__cell--best">4,9 из 5</td>
+              </tr>
+              <tr>
+                <th scope="row">Доставка</th>
+                <td>3–5 дней</td>
+                <td>2–4 дня</td>
+                <td class="compare-table__cell--best">1–2 дня</td>
+              </tr>
+              <tr>
+                <th scope="row">Отзывы</th>
+                <td>12</td>
+                <td>34</td>
+                <td class="compare-table__cell--best">78</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Итог</th>
+                <td>Базовый вариант</td>
+                <td>Хороший выбор</td>
+                <td class="compare-table__cell--best">Лучший выбор</td>
+              </tr>
+              <tr>
+                <th scope="row">Заказ</th>
+                <td>
+                  <a class="button button--secondary" href="index.html#popular">Заказать</a>
+                </td>
+                <td>
+                  <a class="button button--secondary" href="index.html#popular">Заказать</a>
+                </td>
+                <td class="compare-table__cell--best">
+                  <a class="button button--primary" href="index.html#popular">Заказать</a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <a class="to-top" href="#" aria-label="Наверх">↑</a>
+  </body>
+</html>
