@@ -3,7 +3,7 @@
    =================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Основные цвета проекта */
   --color-bg: #ffffff;
@@ -40,9 +40,29 @@
   --z-to-top: 50;
 }
 
-/* Тёмная тема: переопределение переменных при системной настройке */
+/* Тёмная тема: применяется, если пользователь выбрал её кнопкой */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #121212;
+  --color-text: #e6e6e6;
+  --color-muted: #9a9a9a;
+  --color-primary: #5c9ce6;
+  --color-primary-dark: #3d7bc7;
+  --color-border: #2e2e2e;
+  --color-surface: #1c1c1c;
+  --color-surface-accent: #1a2634;
+  --color-danger: #ff6b6b;
+  --color-success: #5cc98a;
+  --color-success-bg: #14291c;
+  --color-white: #ffffff;
+}
+
+/* Автоматическая тёмная тема по системной настройке */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
     --color-bg: #121212;
     --color-text: #e6e6e6;
     --color-muted: #9a9a9a;
@@ -158,7 +178,40 @@ main {
 }
 
 /* ===================================
-   5. Блок: site-nav
+   5. Блок: theme-toggle
+   =================================== */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  font: inherit;
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ===================================
+   6. Блок: site-nav
    =================================== */
 
 .site-nav__list {
@@ -196,7 +249,7 @@ main {
 }
 
 /* ===================================
-   6. Блок: breadcrumbs
+   7. Блок: breadcrumbs
    =================================== */
 
 .breadcrumbs {
@@ -216,7 +269,7 @@ main {
 }
 
 /* ===================================
-   7. Блок: hero
+   8. Блок: hero
    =================================== */
 
 .hero {
@@ -232,7 +285,7 @@ main {
 }
 
 /* ===================================
-   8. Блок: section
+   9. Блок: section
    =================================== */
 
 .section {
@@ -245,7 +298,7 @@ main {
 }
 
 /* ===================================
-   9. Блок: products-grid
+   10. Блок: products-grid
    =================================== */
 
 .products-grid {
@@ -255,7 +308,7 @@ main {
 }
 
 /* ===================================
-   10. Блок: product-card
+   11. Блок: product-card
    =================================== */
 
 .product-card {
@@ -331,7 +384,7 @@ main {
 }
 
 /* ===================================
-   11. Блок: aside-info
+   12. Блок: aside-info
    =================================== */
 
 .aside-info {
@@ -347,7 +400,7 @@ main {
 }
 
 /* ===================================
-   12. Блок: site-footer
+   13. Блок: site-footer
    =================================== */
 
 .site-footer {
@@ -361,7 +414,7 @@ main {
 }
 
 /* ===================================
-   13. Блок: catalog-layout
+   14. Блок: catalog-layout
    =================================== */
 
 .catalog-layout {
@@ -374,7 +427,7 @@ main {
 }
 
 /* ===================================
-   14. Блок: catalog-filters
+   15. Блок: catalog-filters
    =================================== */
 
 .catalog-filters {
@@ -393,7 +446,7 @@ main {
 }
 
 /* ===================================
-   15. Блок: catalog-products
+   16. Блок: catalog-products
    =================================== */
 
 .catalog-products {
@@ -405,7 +458,7 @@ main {
 }
 
 /* ===================================
-   16. Блок: filters-form
+   17. Блок: filters-form
    =================================== */
 
 .filters-form {
@@ -440,7 +493,7 @@ main {
 }
 
 /* ===================================
-   17. Блок: order-dialog
+   18. Блок: order-dialog
    =================================== */
 
 .order-dialog {
@@ -461,7 +514,7 @@ main {
 }
 
 /* ===================================
-   18. Блок: order-form
+   19. Блок: order-form
    =================================== */
 
 .order-form {
@@ -534,7 +587,7 @@ main {
 }
 
 /* ===================================
-   19. Блок: success-message
+   20. Блок: success-message
    =================================== */
 
 .success-message {
@@ -546,109 +599,7 @@ main {
 }
 
 /* ===================================
-   20. Блок: product-detail
-   =================================== */
-
-.product-detail {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  align-items: start;
-}
-
-.product-detail__media {
-  position: relative;
-}
-
-.product-detail__image-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 320px;
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius-md);
-  color: var(--color-muted);
-  background-color: var(--color-surface);
-}
-
-.product-detail__badge {
-  position: absolute;
-  top: var(--space-md);
-  left: var(--space-md);
-  z-index: var(--z-badge);
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-white);
-  border-radius: var(--radius-sm);
-  text-transform: uppercase;
-}
-
-.product-detail__badge--hit {
-  background-color: var(--color-primary);
-}
-
-.product-detail__title {
-  margin-top: 0;
-}
-
-.product-detail__price {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-.product-detail__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-}
-
-/* ===================================
-   21. Блок: product-table
-   =================================== */
-
-.product-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.product-table caption {
-  padding: var(--space-sm);
-  font-weight: 700;
-  text-align: left;
-  color: var(--color-muted);
-}
-
-.product-table th,
-.product-table td {
-  padding: var(--space-sm) var(--space-md);
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.product-table thead th {
-  background-color: var(--color-surface);
-  font-weight: 700;
-}
-
-.product-table tbody tr:hover {
-  background-color: var(--color-surface-accent);
-}
-
-.product-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* ===================================
-   22. Блок: compare-table
+   21. Блок: compare-table
    =================================== */
 
 .compare-table-wrapper {
@@ -713,33 +664,7 @@ main {
 }
 
 /* ===================================
-   23. Блок: faq
-   =================================== */
-
-.faq {
-  display: grid;
-  gap: var(--space-md);
-}
-
-.faq__item {
-  padding: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg);
-}
-
-.faq__question {
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.faq__answer {
-  margin: var(--space-sm) 0 0;
-  color: var(--color-muted);
-}
-
-/* ===================================
-   24. Блок: contacts-list
+   22. Блок: contacts-list
    =================================== */
 
 .contacts-list {
@@ -751,7 +676,7 @@ main {
 }
 
 /* ===================================
-   25. Блок: to-top
+   23. Блок: to-top
    =================================== */
 
 .to-top {
@@ -783,7 +708,7 @@ main {
 }
 
 /* ===================================
-   26. Уважение к настройкам пользователя
+   24. Уважение к настройкам пользователя
    =================================== */
 
 @media (prefers-reduced-motion: reduce) {
