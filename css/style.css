@@ -361,6 +361,10 @@ main {
   padding-right: 70px;
   color: var(--color-text);
 }
+.product-card__img {
+  width: 200px;
+  height: 200px;
+}
 
 .product-card__description {
   margin: 0;
